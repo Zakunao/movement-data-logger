@@ -17,7 +17,7 @@ input.onButtonPressed(Button.AB, function () {
     logging = false
     basic.showIcon(IconNames.Skull)
     datalogger.deleteLog()
-    datalogger.setColumnTitles("y")
+    datalogger.setColumnTitles("Angle")
 })
 input.onButtonPressed(Button.B, function () {
     music.play(music.stringPlayable("C5 C - - - - - - ", 200), music.PlaybackMode.UntilDone)
@@ -27,9 +27,9 @@ input.onButtonPressed(Button.B, function () {
 let logging = false
 logging = false
 basic.showIcon(IconNames.No)
-datalogger.setColumnTitles("y")
+datalogger.setColumnTitles("Angle")
 loops.everyInterval(100, function () {
     if (logging) {
-        datalogger.log(datalogger.createCV("y", input.acceleration(Dimension.Y)))
+        datalogger.log(datalogger.createCV("Angle", input.rotation(Rotation.Pitch)))
     }
 })
